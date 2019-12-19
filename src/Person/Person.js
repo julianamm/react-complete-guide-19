@@ -9,6 +9,7 @@ class Person extends Component {
                 <button onClick={this.props.click}>Switch name</button>
                 <p>I am {Math.floor(Math.random() *30)} years old!</p>
                 <p>{this.props.children}</p>
+                <input type="text" onChange={this.props.changed}/>
             </div>
         )
     }
