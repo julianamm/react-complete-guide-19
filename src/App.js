@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.module.css';
 import Person from './Person/Person.jsx';
+
 
 class App extends Component {
     state = {
@@ -46,15 +47,8 @@ class App extends Component {
     }
 
     render() {
-        const style = {
-            backgroundColor: 'white',
-            font: 'inherit',
-            border: '1px soliod pink',
-            padding: '8px',
-            cursor: 'pointer'
-        };
-
         let persons = null;
+        let btnClass = '';
 
         if (this.state.showPersons) {
             persons = ( 
@@ -77,13 +71,25 @@ class App extends Component {
             );
         }
 
+        btnClass = classes.Red;
+        const assignedClasses = [];
+        if (this.state.persons.length <= 2) {
+            assignedClasses.push(classes.red) // classes = ['red']
+        }
+        if (this.state.persons.length <=1) {
+            assignedClasses.push(classes.bold) // classes =['red', 'bold']
+        }
+
         return ( 
-            <div className = "Main-App" >
-            <h1> Hello world </h1> 
-            <h1>4</h1>   
-            <button style = { style }
+            
+            <div className = {classes.App}>
+            <h1> Hello world </h1>
+            <p className={assignedClasses.join(' ')}>This is working</p>
+            <button className={btnClass}
             // onClick={this.switchNameHandler.bind(this, "Max")}>Switch name</button>
-            onClick = { this.togglePersonsHandler } > Toggled name </button> { persons }   
+            onClick = { this.togglePersonsHandler } > Toggled name 
+            </button> 
+            { persons }   
             </div>
         );
     }
