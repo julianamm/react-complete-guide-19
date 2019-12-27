@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person.jsx';
 
-const StyleButton = styled.button`
-
-
-`; 
 
 class App extends Component {
     state = {
@@ -77,20 +72,20 @@ class App extends Component {
 
         // let classes = ['red', 'bold'].join(' ');
 
-        const classes = [];
+        const assignedClasses = [];
         if (this.state.persons.length <= 2) {
-            classes.push('red') // classes = ['red']
+            assignedClasses.push(classes.red) // classes = ['red']
         }
         if (this.state.persons.length <=1) {
-            classes.push('bold') // classes =['red', 'bold']
+            assignedClasses.push(classes.bold) // classes =['red', 'bold']
         }
 
         return ( 
             
-            <div className = "Main-App" >
+            <div className = {classes.App}>
             <h1> Hello world </h1>
-            <p className={classes.join(' ')}>This is working</p>
-            <button className='button'
+            <p className={assignedClasses.join(' ')}>This is working</p>
+            <button className={assignedClasses.Button}
             // onClick={this.switchNameHandler.bind(this, "Max")}>Switch name</button>
             onClick = { this.togglePersonsHandler } > Toggled name 
             </button> 
