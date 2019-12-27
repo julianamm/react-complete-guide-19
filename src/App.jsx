@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person.js';
+import Person from './Person/Person.jsx';
 
 class App extends Component {
     state = {
@@ -57,8 +57,8 @@ class App extends Component {
         let persons = null;
 
         if (this.state.showPersons) {
-            persons = ( <
-                div > {
+            persons = ( 
+                <div> {
                     this.state.persons.map((person, index) => {
                         return <Person
                         click = {
@@ -72,20 +72,19 @@ class App extends Component {
                         }
                         />
                     })
-                } <
-                /div> 
+                } 
+                </div> 
             );
         }
 
-        return ( <
-            div className = "Main-App" >
-            <
-            h1 > Hello world < /h1>   <
-            h1 > 4 < /h1>   <
-            button style = { style }
+        return ( 
+            <div className = "Main-App" >
+            <h1> Hello world </h1> 
+            <h1>4</h1>   
+            <button style = { style }
             // onClick={this.switchNameHandler.bind(this, "Max")}>Switch name</button>
-            onClick = { this.togglePersonsHandler } > Toggled name < /button> { persons }   < /
-            div >
+            onClick = { this.togglePersonsHandler } > Toggled name </button> { persons }   
+            </div>
         );
     }
 }
