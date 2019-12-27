@@ -5,17 +5,7 @@ import Person from './Person/Person.jsx';
 
 const StyleButton = styled.button`
 
-    background-color: ${props => props.alt ? 'red' : 'green'};
-    color: white;
-    font: inherit;
-    border: 1px solid pink;
-    padding: 8px;
-    cursor: pointer;
 
-    &:hover {
-        background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
-        color: black;
-    }
 `; 
 
 class App extends Component {
@@ -100,10 +90,10 @@ class App extends Component {
             <div className = "Main-App" >
             <h1> Hello world </h1>
             <p className={classes.join(' ')}>This is working</p>
-            <StyleButton alt={this.state.showPersons}
+            <button className='button'
             // onClick={this.switchNameHandler.bind(this, "Max")}>Switch name</button>
             onClick = { this.togglePersonsHandler } > Toggled name 
-            </StyleButton> 
+            </button> 
             { persons }   
             </div>
         );
