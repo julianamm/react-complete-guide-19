@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './Cockpit.module.css'
 
-const cockpit = (props) => {
+const Cockpit = (props) => {
+    useEffect(() => {
+        console.log('[Cockpit.js] useEffect');
+        // HTTP Request...
+        setTimeout(() => {
+            alert('save data to cloud');
+        }, 1000);
+    }, [props.persons]); // or use an empty array [] to only show once when you initiate
+    
+    // useEffect();
+
     const assignedClasses = [];
     let btnClass = '';
     if (props.showPersons) {
@@ -28,4 +38,4 @@ const cockpit = (props) => {
     );
 };
 
-export default cockpit;
+export default Cockpit;
